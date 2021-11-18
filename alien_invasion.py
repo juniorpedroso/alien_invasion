@@ -18,8 +18,8 @@ def run_game():
 
     # Inicia o laço principal do jogo
     while True:
-        gf.check_events()
-
+        gf.check_events(ship)
+        ship.update()   # Checa se alguma tecla está sendo pressionada
         gf.update_screen(ai_settings, screen, ship)
 
 

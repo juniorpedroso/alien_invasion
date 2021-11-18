@@ -3,13 +3,27 @@ import sys
 import pygame
 
 
-def check_events():
+def check_events(ship):
     """[Responde a eventos de pressionamento de teclas e mouse]
     """
     # Observa eventos de teclado e de mouse
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+
+        elif event.type == pygame.KEYDOWN:
+            # Pressionando a tecla o movimento inicia
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = True
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = True                
+
+        elif event.type == pygame.KEYUP:
+            # Levantando a tecla o movimento para
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = False
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = False
 
 
 def update_screen(ai_settings, screen, ship):
