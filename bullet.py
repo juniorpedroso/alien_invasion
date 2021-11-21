@@ -3,13 +3,13 @@ from pygame.sprite import Sprite
 
 
 class Bullet(Sprite):
-    """[Uma classe que administra porjéteis disparados pela
+    """[Uma classe que administra projéteis disparados pela
     espaçonave]"""
 
     def __init__(self, ai_settings, screen, ship):
         """[Cria um objeto para o projétil na posição atual da
         espaçonave]"""
-        super(Bullet, self).__init__()
+        super().__init__()
         self.screen = screen
 
         # Cria um retãngulo  para o projétil em (0, 0) e, em seguida,
@@ -23,4 +23,15 @@ class Bullet(Sprite):
         self.y = float(self.rect.y)
 
         self.color = ai_settings.bullet_color
-        self.ship_speed_factor = ai_settings.bullet_speed_factor
+        self.speed_factor = ai_settings.bullet_speed_factor
+
+    def update(self):
+        """[Move o projétil para cima na tela]"""
+        # Atualiza a posição decimal do projétil
+        self.y -= self.speed_factor
+        # Atualiza a posição de rect
+        self.rect.y = self.y
+
+    def draw_bullet(self):
+        """[Desenha o projétil na tela]"""
+        pygame.draw.rect(self.screen, self.color, self.rect)

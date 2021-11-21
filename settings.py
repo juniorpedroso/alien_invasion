@@ -14,7 +14,7 @@ class Settings():
         # Configurações da espaçonave
         self.ship_speed_factor = 1.5
 
-        # configurações dos porjéteis
+        # configurações dos projéteis
         self.bullet_speed_factor = 1
         self.bullet_width = 3
         self.bullet_height = 15
