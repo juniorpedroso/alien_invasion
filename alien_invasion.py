@@ -22,9 +22,13 @@ def run_game():
 
     # Inicia o laço principal do jogo
     while True:
+        # Verifica se há entradas do jogador
         gf.check_events(ai_settings, screen, ship, bullets)
+        # Atualiza a posição da espaçonave
         ship.update()
-        bullets.update()
+        # Atualiza os projéteis
+        gf.update_bullets(bullets)
+        # Desenha uma nova tela
         gf.update_screen(ai_settings, screen, ship, bullets)
 
 
