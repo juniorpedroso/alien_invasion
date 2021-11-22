@@ -29,7 +29,7 @@ def run_game():
         # Atualiza a posição da espaçonave
         ship.update()
         # Atualiza os projéteis
-        gf.update_bullets(bullets)
+        gf.update_bullets(aliens, bullets)
         # Atualiza os aliens
         gf.update_aliens(ai_settings, aliens)
         # Desenha uma nova tela

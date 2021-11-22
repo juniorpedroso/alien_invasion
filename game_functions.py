@@ -65,9 +65,12 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
     pygame.display.flip()
 
 
-def update_bullets(bullets):
+def update_bullets(aliens, bullets):
     """[Atualiza a posição dos projéteis e se livra dos projéteis antigos]"""
     bullets.update()
+    # Verifica se algum projétil atingiu os alienígenas
+    # Em caso afirmativo, livra-se do projétil e do alienígena
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
     # Livra-se dos projéteis que despareceram
     for bullet in bullets.copy():
