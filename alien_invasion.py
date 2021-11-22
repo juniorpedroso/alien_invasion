@@ -14,11 +14,13 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption('Alien Invasion')
 
-    # Cria uma espaçonave
+    # Cria uma espaçonave, um grupo de projéteis e um grupo de alienígenas
     ship = Ship(ai_settings, screen)
-
-    # Cria um grupo no qual serão armazenados os projéteis
     bullets = Group()
+    aliens = Group()
+
+    # Cria a frota de alienígenas
+    gf.create_fleet(ai_settings, screen, aliens)
 
     # Inicia o laço principal do jogo
     while True:
@@ -29,7 +31,7 @@ def run_game():
         # Atualiza os projéteis
         gf.update_bullets(bullets)
         # Desenha uma nova tela
-        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
 run_game()
