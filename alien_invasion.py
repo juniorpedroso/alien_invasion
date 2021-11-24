@@ -26,6 +26,9 @@ def run_game():
     # Cria uma instância para armazenar dados estatísticos do jogo
     stats = GameStats(ai_settings)
 
+    # Carrega a imagem de um fundo de tela
+    #background = pygame.image.load('images/City Night.png')
+
     # Inicia o laço principal do jogo
     while True:
         # Verifica se há entradas do jogador

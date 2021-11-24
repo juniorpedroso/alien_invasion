@@ -51,6 +51,9 @@ def check_events(ai_settings, screen, ship, bullets):
 def update_screen(ai_settings, screen, ship, aliens, bullets):
     # Redesenha a tela a cada passagem pelo laço
     screen.fill(ai_settings.bg_color)
+    #screen.fill((0, 0, 0))
+    # Background Image
+    #screen.blit(background, (0, 0))
 
     # Redesenha todos os projéteis atrás da espaçonave e dos alienígenas
     for bullet in bullets.sprites():
