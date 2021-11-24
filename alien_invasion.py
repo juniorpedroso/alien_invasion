@@ -3,6 +3,7 @@ from pygame.sprite import Group
 
 from settings import Settings
 from game_stats import GameStats
+from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
 import game_functions as gf
@@ -27,8 +28,10 @@ def run_game():
     # Cria a frota de alienígenas
     gf.create_fleet(ai_settings, screen, ship, aliens)
 
-    # Cria uma instância para armazenar dados estatísticos do jogo
+    # Cria instância para armazenar estatísticos do jogo e
+    # Cria painel de pontuação
     stats = GameStats(ai_settings)
+    sb = Scoreboard(ai_settings, screen, stats)
 
     # Carrega a imagem de um fundo de tela
     #background = pygame.image.load('images/City Night.png')
@@ -42,13 +45,14 @@ def run_game():
             # Atualiza a posição da espaçonave
             ship.update()
             # Atualiza os projéteis
-            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+            gf.update_bullets(ai_settings, screen, stats, sb, ship,
+                              aliens, bullets)
             # Atualiza os aliens
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
 
         # Desenha uma nova tela
-        gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets,
-                         play_button)
+        gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
+                         bullets, play_button)
 
 
 run_game()
