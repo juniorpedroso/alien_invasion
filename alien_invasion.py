@@ -1,3 +1,4 @@
+# Lembrança do tempo de adolescente
 import pygame
 from pygame.sprite import Group
 
@@ -48,7 +49,8 @@ def run_game():
             gf.update_bullets(ai_settings, screen, stats, sb, ship,
                               aliens, bullets)
             # Atualiza os aliens
-            gf.update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets)
+            gf.update_aliens(ai_settings, screen, stats,
+                             sb, ship, aliens, bullets)
 
         # Desenha uma nova tela
         gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
